@@ -1,0 +1,42 @@
+---creating a database using  psql database
+
+CREATE SCHEMA movie_library;
+SET search_path TO movie_library;
+
+---creating a table naming movie
+---input columns movie_name,lead_actor,actress,year_of_release,director_name
+
+CREATE TABLE movie(movie_name TEXT,
+				   lead_actor TEXT,
+				   actress TEXT,
+				   year_of_release INT,
+				   director_name TEXT);
+
+---inserting data into table
+
+ INSERT INTO movie VALUES('Drishyam','Mohanlal','Meena','2013','Jeethu Joseph');
+ INSERT INTO movie VALUES('Nayattu','Kunchacko Boban','Nimisha Sajayan','2021','Martin Prakkat');
+ INSERT INTO movie VALUES('joji','Fahad Faasil','Unnimaya Prasad','2021','Dileesh Pothan');
+ INSERT INTO movie VALUES('Traffic','Sreenivasan','Sandhya','2011',' Rajesh Pillai');
+ INSERT INTO movie VALUES('The Great Indian Kitchen','Suraj Venjaramoodu','Nimisha Sajayan','2021','Jeo Baby');
+ INSERT INTO movie VALUES('Uyare','Tovino Thomas','Parvathy','2019','Manu Ashokan');
+ INSERT INTO movie VALUES('Usthad Hotel','Dulqur Salman','Nithya Menon','2012','Anwar Rasheed');
+ INSERT INTO movie VALUES('Banglore Days','Nivin polly','Nazriya','2014','Anjali Menon');
+ INSERT INTO movie VALUES('Kapella','Sreenath Bhasi','Anna Ben','2020',' Musthafa');
+ INSERT INTO movie VALUES('Chitram','Mohanlal','Ranjini','1988','Priyadarshan');
+ 
+ 
+ --USING QUERY to return vlaue
+ 
+ SELECT * FROM movie;
+ 
+ ---lead_actor to select movies based on the actor's name
+
+SELECT lead_actor,movie_name FROM movie;
+
+---selecting movie by lead_actor name
+
+SELECT lead_actor,movie_name,year_of_release
+FROM movie
+WHERE lead_actor IN ('Mohanlal')
+ORDER BY year_of_release
